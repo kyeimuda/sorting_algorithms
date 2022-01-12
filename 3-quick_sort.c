@@ -13,15 +13,15 @@
  */
 void _swap(int *array, int i, int j, int size)
 {
-  int tmp;
+int tmp;
 
-  if (array[i] != array[j])
-    {
-      tmp = array[i];
-      array[i] = array[j];
-      array[j] = tmp;
-      print_array(array, size);
-    }
+if (array[i] != array[j])
+{
+tmp = array[i];
+array[i] = array[j];
+array[j] = tmp;
+print_array(array, size);
+}
 }
 
 /**
@@ -36,20 +36,19 @@ void _swap(int *array, int i, int j, int size)
  */
 int partition(int *array, int min, int max, size_t size)
 {
-  int i = min, j, pivot  = array[max];
+int i = min, j, pivot  = array[max];
 
-  for (j = min; j <= max; j++)
-    {
-      if (array[j] < pivot)
-	{
-	  _swap(array, i, j, size);
-	  i++;
-	}
+for (j = min; j <= max; j++)
+{
+if (array[j] < pivot)
+{
+_swap(array, i, j, size);
+i++;
+}
+}
+_swap(array, i, max, size);
 
-    }
-  _swap(array, i, max, size);
-
-  return (i);
+return (i);
 }
 
 /**
@@ -65,14 +64,14 @@ int partition(int *array, int min, int max, size_t size)
  */
 void quicksort(int *array, int min, int max, size_t size)
 {
-  int p;
+int p;
 
-  if (min < max)
-    {
-      p = partition(array, min, max, size);
-      quicksort(array, min, p - 1, size);
-      quicksort(array, p + 1, max, size);
-    }
+if (min < max)
+{
+p = partition(array, min, max, size);
+quicksort(array, min, p - 1, size);
+quicksort(array, p + 1, max, size);
+}
 }
 
 /**
@@ -86,7 +85,7 @@ void quicksort(int *array, int min, int max, size_t size)
  */
 void quick_sort(int *array, size_t size)
 {
-  if (size < 2)
-    return;
+if (size < 2)
+return;
 
-  quicksort(array, 0, size - 1, size);
+quicksort(array, 0, size - 1, size);
